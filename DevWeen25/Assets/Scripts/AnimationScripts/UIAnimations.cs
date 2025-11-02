@@ -29,13 +29,19 @@ public class UIAnimations : MonoBehaviour
     }
 
 
+    public void PlayFade()
+    {
+        animator.SetTrigger("Start");
+    }
+
 
     /*
     IEnumerator Teste()
     {
        
         yield return new WaitForSeconds(3f);
-        
+        PlayFade();
+        /*
         PlayAnimJump();
         Debug.Log("deveria ter pulado");
 
@@ -43,6 +49,7 @@ public class UIAnimations : MonoBehaviour
         PlayAnimShake();
 
         CameraShakeManager.instanceShake.CameraShake();
+        
     }
   */
 }
