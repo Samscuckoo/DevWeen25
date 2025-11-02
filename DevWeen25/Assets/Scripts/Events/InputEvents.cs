@@ -3,12 +3,12 @@ using System;
 
 public class InputEvents
 {
-    // public InputEventContext inputEventContext { get; private set; } = InputEventContext.DEFAULT;
+    public InputEventContext inputEventContext { get; private set; } = InputEventContext.DEFAULT;
 
-    // public void ChangeInputEventContext(InputEventContext newContext) 
-    // {
-    //     this.inputEventContext = newContext;
-    // }
+    public void ChangeInputEventContext(InputEventContext newContext) 
+    {
+        this.inputEventContext = newContext;
+    }
 
     public event Action<Vector2> onMovePressed;
     public void MovePressed(Vector2 moveDir) 
@@ -19,23 +19,14 @@ public class InputEvents
         }
     }
 
-    public event Action onInteractPressed;
+    public event Action<InputEventContext> onInteractPressed;
     public void InteractPressed()
     {
         if (onInteractPressed != null) 
         {
-            onInteractPressed();
+            onInteractPressed(this.inputEventContext);
         }
     }
-
-    // public event Action<InputEventContext> onInteractPressed;
-    // public void InteractPressed()
-    // {
-    //     if (onInteractPressed != null) 
-    //     {
-    //         onInteractPressed(this.inputEventContext);
-    //     }
-    // }
 
     public event Action onQuestLogTogglePressed;
     public void QuestLogTogglePressed()
