@@ -23,5 +23,26 @@ public class FalarComPeixeStep : QuestStep
             hasSpokenToFish = true;
             FinishQuestStep();
         }
+        UpdateState();
+    }
+
+    private void UpdateState()
+    {
+        string state = hasSpokenToFish ? "TalkedToFish" : "NotTalkedToFish";
+        string status = hasSpokenToFish ? "Completed" : "InProgress";
+        ChangeState(state, status);
+    }
+
+    protected override void SetQuestStepState(string state)
+    {
+        if (state == "TalkedToFish")
+        {
+            hasSpokenToFish = true;
+        }
+        else
+        {
+            hasSpokenToFish = false;
+        }
+        UpdateState();
     }
 }
