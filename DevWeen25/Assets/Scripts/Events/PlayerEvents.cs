@@ -1,16 +1,49 @@
-using UnityEngine;
+using System;
 
-public class PlayerEvents : MonoBehaviour
+public class PlayerEvents
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public event Action onDisablePlayerMovement;
+    public void DisablePlayerMovement()
     {
-        
+        if (onDisablePlayerMovement != null) 
+        {
+            onDisablePlayerMovement();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public event Action onEnablePlayerMovement;
+    public void EnablePlayerMovement()
     {
-        
+        if (onEnablePlayerMovement != null) 
+        {
+            onEnablePlayerMovement();
+        }
+    }
+
+    public event Action<int> onExperienceGained;
+    public void ExperienceGained(int experience) 
+    {
+        if (onExperienceGained != null) 
+        {
+            onExperienceGained(experience);
+        }
+    }
+
+    public event Action<int> onPlayerLevelChange;
+    public void PlayerLevelChange(int level) 
+    {
+        if (onPlayerLevelChange != null) 
+        {
+            onPlayerLevelChange(level);
+        }
+    }
+
+    public event Action<int> onPlayerExperienceChange;
+    public void PlayerExperienceChange(int experience) 
+    {
+        if (onPlayerExperienceChange != null) 
+        {
+            onPlayerExperienceChange(experience);
+        }
     }
 }

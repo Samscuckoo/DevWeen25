@@ -1,16 +1,48 @@
 using UnityEngine;
+using System;
 
-public class InputEvents : MonoBehaviour
+public class InputEvents
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // public InputEventContext inputEventContext { get; private set; } = InputEventContext.DEFAULT;
+
+    // public void ChangeInputEventContext(InputEventContext newContext) 
+    // {
+    //     this.inputEventContext = newContext;
+    // }
+
+    public event Action<Vector2> onMovePressed;
+    public void MovePressed(Vector2 moveDir) 
     {
-        
+        if (onMovePressed != null) 
+        {
+            onMovePressed(moveDir);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public event Action onInteractPressed;
+    public void InteractPressed()
     {
-        
+        if (onInteractPressed != null) 
+        {
+            onInteractPressed();
+        }
+    }
+
+    // public event Action<InputEventContext> onInteractPressed;
+    // public void InteractPressed()
+    // {
+    //     if (onInteractPressed != null) 
+    //     {
+    //         onInteractPressed(this.inputEventContext);
+    //     }
+    // }
+
+    public event Action onQuestLogTogglePressed;
+    public void QuestLogTogglePressed()
+    {
+        if (onQuestLogTogglePressed != null) 
+        {
+            onQuestLogTogglePressed();
+        }
     }
 }

@@ -1,43 +1,29 @@
+using System;
 using UnityEngine;
 
 public class GameEventsManager : MonoBehaviour
 {
-
     public static GameEventsManager instance { get; private set; }
 
     public InputEvents inputEvents;
-    public MiscEvents miscEvents;
     public PlayerEvents playerEvents;
-    public DialogueEvents dialogueEvents;
+    public MiscEvents miscEvents;
     public QuestEvents questEvents;
-
+    public DialogueEvents dialogueEvents;
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance != null)
         {
-            Destroy(this.gameObject);
-            return;
+            Debug.LogError("Found more than one Game Events Manager in the scene.");
         }
         instance = this;
 
+        // initialize all events
         inputEvents = new InputEvents();
-        miscEvents = new MiscEvents();
         playerEvents = new PlayerEvents();
-        dialogueEvents = new DialogueEvents();
+        miscEvents = new MiscEvents();
         questEvents = new QuestEvents();
-
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        dialogueEvents = new DialogueEvents();
     }
 }

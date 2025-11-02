@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f706d957788094483ecab10570cd1b, type: 3}
   m_Name: FalarComPeixeQuest
   m_EditorClassIdentifier: Assembly-CSharp::QuestInfoSO
-  displayName: 
+  displayName: Falar com a menina peixe
   prerequisiteQuests: []
-  questStepPrefabs: []
-  prestiegePoints: 0
+  questStepPrefabs:
+  - {fileID: 313492056608841747, guid: 6b11e99a6944cc944b1d127efea43ea3, type: 3}
+  prestiegePoints: 20
