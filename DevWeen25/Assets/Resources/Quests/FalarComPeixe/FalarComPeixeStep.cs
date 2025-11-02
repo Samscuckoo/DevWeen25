@@ -8,12 +8,12 @@ public class FalarComPeixeStep : QuestStep
 
     private void OnEnable()
     {
-        GameEventsManager.instance.dialogueEvents.OnEnterDialogue += HandleTalk;
+        GameEventsManager.instance.dialogueEvents.onEnterDialogue += HandleTalk;
     }
 
     private void OnDisable()
     {
-        GameEventsManager.instance.dialogueEvents.OnEnterDialogue -= HandleTalk;
+        GameEventsManager.instance.dialogueEvents.onEnterDialogue -= HandleTalk;
     }
 
     private void HandleTalk(string npcName)

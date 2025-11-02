@@ -83,10 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a2ce186a4e878542b0e9e3ba7e1c8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestPoint
-  questInfoForPoint: {fileID: 11400000, guid: c4e2c9f0e035f5042bff6800e03b62df, type: 2}
+  dialogueKnotName: 
+  questInfoForPoint: {fileID: 0}
   startPoint: 1
   finishPoint: 1
-  dialogueKnotName: 
 --- !u!1 &3922777810016185807
 GameObject:
   m_ObjectHideFlags: 0

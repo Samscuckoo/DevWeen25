@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Animator animator;
 
+    // torna visível no Inspector para debug
+    [SerializeField] private bool movementEnabled = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,22 +21,64 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = moveInput * moveSpeed;
+        if (!movementEnabled)
+        {
+            if (rb != null) rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        if (rb != null) rb.linearVelocity = moveInput * moveSpeed;
+    }
+
+    private void OnEnable()
+    {
+        GameEventsManager.instance.playerEvents.onDisablePlayerMovement += DisableMovement;
+        GameEventsManager.instance.playerEvents.onEnablePlayerMovement += EnableMovement;
+    }
+
+     private void OnDisable()
+    {
+        GameEventsManager.instance.playerEvents.onDisablePlayerMovement -= DisableMovement;
+        GameEventsManager.instance.playerEvents.onEnablePlayerMovement -= EnableMovement;        
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        animator.SetBool("IsWalking", true);
-        if (context.canceled)
+        // sempre atualiza moveInput (para quando reabilitar manter último valor)
+        moveInput = context.ReadValue<Vector2>();
+
+        // se movimento desabilitado, garante que animação pare e não processa
+        if (!movementEnabled)
         {
-            animator.SetBool("IsWalking", false);
-            animator.SetFloat("LastInputX", moveInput.x);
-            animator.SetFloat("LastInputY", moveInput.y);
+            if (animator != null) animator.SetBool("IsWalking", false);
+            return;
         }
 
-        moveInput = context.ReadValue<Vector2>();
-        animator.SetFloat("InputX", moveInput.x);
-        animator.SetFloat("InputY", moveInput.y);
+        bool isWalking = !context.canceled && moveInput != Vector2.zero;
+        if (animator != null)
+        {
+            animator.SetBool("IsWalking", isWalking);
 
+            if (context.canceled)
+            {
+                animator.SetFloat("LastInputX", moveInput.x);
+                animator.SetFloat("LastInputY", moveInput.y);
+            }
+
+            animator.SetFloat("InputX", moveInput.x);
+            animator.SetFloat("InputY", moveInput.y);
+        }
+    }
+
+    private void DisableMovement()
+    {
+        movementEnabled = false;
+        if (rb != null) rb.linearVelocity = Vector2.zero;
+        if (animator != null) animator.SetBool("IsWalking", false);
+    }
+
+    private void EnableMovement()
+    {
+        movementEnabled = true;
     }
 }
