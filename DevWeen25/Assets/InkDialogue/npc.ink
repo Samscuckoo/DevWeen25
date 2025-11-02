@@ -12,13 +12,13 @@
 -> END
 
 = canStart
-CADE VC ANISAAAA #speaker:Ank #portrait:mumia_feliz
+CADE VC ANISAAAA #speaker:Ank #portrait:Viktor_shy
 Vc ta vendo a transmissão?
 * [Sim]
     ~ StartQuest(VisitPillarsQuestId)
-    Então vai perto dos pilares
+    Então vai perto dos pilares #portrait:Shelly_normal
 * [Não]
-    Quando tiver, avisa. #portrait:mumia_triste
+    Quando tiver, avisa. #portrait:Shelly_cry
 - -> END
 
 = inProgress

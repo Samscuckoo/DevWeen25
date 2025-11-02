@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
     [Header("Ink Story")]
     [SerializeField] private TextAsset inkJSON;
     [SerializeField] private TextMeshProUGUI displayNameText;
+    [SerializeField] Animator portraitAnimator;
+
     private Story story;
     private int currentChoiceIndex = -1;
     private bool dialoguePlaying = false;
@@ -101,6 +103,10 @@ public class DialogueManager : MonoBehaviour
 
         inkDialogueVariables.SyncVariablesAndStartListening(story);
 
+        displayNameText.text = "???";
+        portraitAnimator.Play("Default");
+
+
         ContinueOrExitStory();
     }
 
@@ -141,7 +147,7 @@ public class DialogueManager : MonoBehaviour
     private void HandleTags(List<string> tags)
     {
       
-        Debug.Log($"Handling {tags.Count} tags.");
+        // Debug.Log($"Handling {tags.Count} tags.");
         foreach (string tag in tags)
         {
             string[] splitTag = tag.Split(':');
@@ -160,7 +166,7 @@ public class DialogueManager : MonoBehaviour
                     displayNameText.text = tagValue;
                     break;
                 case PORTRAIT_TAG:
-                    Debug.Log($"Portrait changed to: {tagValue}");
+                    portraitAnimator.Play(tagValue);
                     break;
                 default:
                     Debug.LogWarning($"Unhandled tag key: {tagKey}");

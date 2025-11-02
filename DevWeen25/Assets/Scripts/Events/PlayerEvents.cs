@@ -2,48 +2,31 @@ using System;
 
 public class PlayerEvents
 {
+    // Movement
     public event Action onDisablePlayerMovement;
     public void DisablePlayerMovement()
     {
-        if (onDisablePlayerMovement != null) 
-        {
-            onDisablePlayerMovement();
-        }
+        onDisablePlayerMovement?.Invoke();
     }
 
     public event Action onEnablePlayerMovement;
     public void EnablePlayerMovement()
     {
-        if (onEnablePlayerMovement != null) 
-        {
-            onEnablePlayerMovement();
-        }
+        onEnablePlayerMovement?.Invoke();
     }
 
-    public event Action<int> onExperienceGained;
-    public void ExperienceGained(int experience) 
+    // Prestígio: notifica quando os pontos de um personagem mudam
+    // CharacterType deve existir em outro arquivo (enum com os 4 personagens)
+    public event Action<CharacterType, int> onPrestigePointsChange;
+    public void PlayerPrestigePointsChange(CharacterType character, int points)
     {
-        if (onExperienceGained != null) 
-        {
-            onExperienceGained(experience);
-        }
+        onPrestigePointsChange?.Invoke(character, points);
     }
 
-    public event Action<int> onPlayerLevelChange;
-    public void PlayerLevelChange(int level) 
+    
+    public event Action onPrestigeUpdated;
+    public void PrestigeUpdated()
     {
-        if (onPlayerLevelChange != null) 
-        {
-            onPlayerLevelChange(level);
-        }
-    }
-
-    public event Action<int> onPlayerExperienceChange;
-    public void PlayerExperienceChange(int experience) 
-    {
-        if (onPlayerExperienceChange != null) 
-        {
-            onPlayerExperienceChange(experience);
-        }
+        onPrestigeUpdated?.Invoke();
     }
 }
