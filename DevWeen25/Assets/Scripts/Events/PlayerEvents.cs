@@ -22,11 +22,4 @@ public class PlayerEvents
     {
         onPrestigePointsChange?.Invoke(character, points);
     }
-
-    
-    public event Action onPrestigeUpdated;
-    public void PrestigeUpdated()
-    {
-        onPrestigeUpdated?.Invoke();
-    }
 }

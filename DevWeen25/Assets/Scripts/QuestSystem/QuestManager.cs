@@ -44,33 +44,38 @@ public class QuestManager : MonoBehaviour
 
     private void ClaimRewards(Quest quest)
     {
-        // Grant experience, items, etc. to the player
-        Debug.Log($"Quest {quest.info.id} finished! Rewards granted.");
+        GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange()
+
+        // Mantém o debug
+        Debug.Log($"Quest {quest.info.id} finished! Prestige rewards granted.");
     }
+
 
 
      private bool CheckRequirementsMet(Quest quest)
+{
+    bool meetsRequirements = true;
+
+    // Verifica se o jogador tem pontos de prestígio suficientes para cada personagem
+    if (PlayerPrestigeManager.instance.GetPrestigePoints(CharacterType.Shelly) < quest.info.shellyPoints)
+        meetsRequirements = false;
+    if (PlayerPrestigeManager.instance.GetPrestigePoints(CharacterType.Viktor) < quest.info.viktorPoints)
+        meetsRequirements = false;
+    if (PlayerPrestigeManager.instance.GetPrestigePoints(CharacterType.Ankhesara) < quest.info.ankhesaraPoints)
+        meetsRequirements = false;
+    if (PlayerPrestigeManager.instance.GetPrestigePoints(CharacterType.Decalya) < quest.info.decalyaPoints)
+        meetsRequirements = false;
+
+    // Verifica pré-requisitos de outras quests 
+    foreach (QuestInfoSO prerequisiteQuestInfo in quest.info.questPrerequisites)
     {
-        // start true and prove to be false
-        bool meetsRequirements = true;
-
-        // check player level requirements
-        // if (currentPlayerLevel < quest.info.levelRequirement)
-        // {
-        //     meetsRequirements = false;
-        // }
-
-        // check quest prerequisites for completion
-        foreach (QuestInfoSO prerequisiteQuestInfo in quest.info.questPrerequisites)
-        {
-            if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
-            {
-                meetsRequirements = false;
-            }
-        }
-
-        return meetsRequirements;
+        if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
+            meetsRequirements = false;
     }
+
+    return meetsRequirements;
+}
+
 
     private void Update()
     {
