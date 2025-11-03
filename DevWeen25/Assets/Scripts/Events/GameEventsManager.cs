@@ -26,4 +26,10 @@ public class GameEventsManager : MonoBehaviour
         questEvents = new QuestEvents();
         dialogueEvents = new DialogueEvents();
     }
+
+    private void Start()
+    {
+        string dialogueKnotName = "Intro1";
+        dialogueEvents.EnterDialogue(dialogueKnotName);
+    }
 }

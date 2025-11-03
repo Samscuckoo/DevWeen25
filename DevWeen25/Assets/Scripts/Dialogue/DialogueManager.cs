@@ -18,6 +18,13 @@ public class DialogueManager : MonoBehaviour
 
     private const string SPEAKER_TAG = "speaker";
     private const string PORTRAIT_TAG = "portrait";
+    private const string REWARD_SHELLY_TAG = "rewardShelly";
+
+    private const string REWARD_VIKTOR_TAG = "rewardViktor";
+
+    private const string REWARD_DECAYLA_TAG = "rewardDecayla";
+
+    private const string REWARD_ANKHESARA_TAG = "rewardAnkhesara";
 
 
     private void Awake()
@@ -146,7 +153,7 @@ public class DialogueManager : MonoBehaviour
 
     private void HandleTags(List<string> tags)
     {
-      
+
         // Debug.Log($"Handling {tags.Count} tags.");
         foreach (string tag in tags)
         {
@@ -168,11 +175,32 @@ public class DialogueManager : MonoBehaviour
                 case PORTRAIT_TAG:
                     portraitAnimator.Play(tagValue);
                     break;
+                case REWARD_SHELLY_TAG:
+                    GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange(CharacterType.Shelly, ParseTagInt(tagValue));
+                    break;
+                case REWARD_VIKTOR_TAG:
+                    GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange(CharacterType.Viktor, ParseTagInt(tagValue));
+                    break;
+                case REWARD_DECAYLA_TAG:
+                    GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange(CharacterType.Decalya, ParseTagInt(tagValue));
+                    break;
+                case REWARD_ANKHESARA_TAG:
+                    GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange(CharacterType.Ankhesara, ParseTagInt(tagValue));
+                    break;
                 default:
                     Debug.LogWarning($"Unhandled tag key: {tagKey}");
                     break;
             }
         }
+    }
+    
+    private int ParseTagInt(string tagValue, int defaultValue = 0)
+    {
+        if (int.TryParse(tagValue, out int result))
+            return result;
+
+        Debug.LogWarning($"Failed to parse tag numeric value '{tagValue}'. Using default {defaultValue}.");
+        return defaultValue;
     }
 
     private void UpdateChoiceSprites(List<Choice> choices)

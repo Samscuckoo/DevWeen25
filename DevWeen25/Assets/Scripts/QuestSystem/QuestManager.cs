@@ -44,37 +44,71 @@ public class QuestManager : MonoBehaviour
 
     private void ClaimRewards(Quest quest)
     {
-        GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange()
+        // Debug.Log($" {quest.info.prestigePointsShelly}");
+        // Concede pontos de prestígio para cada personagem
+        if (quest.info.prestigePointsShelly > 0)
+            GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange(CharacterType.Shelly, quest.info.prestigePointsShelly);
+        if (quest.info.prestigePointsViktor > 0)
+            GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange(CharacterType.Viktor, quest.info.prestigePointsViktor);
+        if (quest.info.prestigePointsAnkhesara > 0)
+            GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange(CharacterType.Ankhesara, quest.info.prestigePointsAnkhesara);
+        if (quest.info.prestiegePointsDecalya > 0)
+            GameEventsManager.instance.playerEvents.PlayerPrestigePointsChange(CharacterType.Decalya, quest.info.prestiegePointsDecalya);
 
-        // Mantém o debug
         Debug.Log($"Quest {quest.info.id} finished! Prestige rewards granted.");
     }
 
 
 
-     private bool CheckRequirementsMet(Quest quest)
-{
-    bool meetsRequirements = true;
+     private Dictionary<CharacterType, int> prestigePoints = new Dictionary<CharacterType, int>();
 
-    // Verifica se o jogador tem pontos de prestígio suficientes para cada personagem
-    if (PlayerPrestigeManager.instance.GetPrestigePoints(CharacterType.Shelly) < quest.info.shellyPoints)
-        meetsRequirements = false;
-    if (PlayerPrestigeManager.instance.GetPrestigePoints(CharacterType.Viktor) < quest.info.viktorPoints)
-        meetsRequirements = false;
-    if (PlayerPrestigeManager.instance.GetPrestigePoints(CharacterType.Ankhesara) < quest.info.ankhesaraPoints)
-        meetsRequirements = false;
-    if (PlayerPrestigeManager.instance.GetPrestigePoints(CharacterType.Decalya) < quest.info.decalyaPoints)
-        meetsRequirements = false;
-
-    // Verifica pré-requisitos de outras quests 
-    foreach (QuestInfoSO prerequisiteQuestInfo in quest.info.questPrerequisites)
+    private bool CheckRequirementsMet(Quest quest)
     {
-        if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
-            meetsRequirements = false;
-    }
+        bool meetsRequirements = true;
 
-    return meetsRequirements;
-}
+        // Verifica se o jogador tem pontos de prestígio suficientes para cada personagem
+        foreach (var character in System.Enum.GetValues(typeof(CharacterType)))
+        {
+            CharacterType characterType = (CharacterType)character;
+            int requiredPoints = 0;
+
+            // Mapeia o tipo de personagem para os pontos requeridos
+            switch (characterType)
+            {
+                case CharacterType.Shelly:
+                    requiredPoints = quest.info.shellyPoints;
+                    break;
+                case CharacterType.Viktor:
+                    requiredPoints = quest.info.viktorPoints;
+                    break;
+                case CharacterType.Ankhesara:
+                    requiredPoints = quest.info.ankhesaraPoints;
+                    break;
+                case CharacterType.Decalya:
+                    requiredPoints = quest.info.decalyaPoints;
+                    break;
+            }
+
+            // Se há requisito de pontos e não temos pontos suficientes
+            if (requiredPoints > 0 && (!prestigePoints.ContainsKey(characterType) || prestigePoints[characterType] < requiredPoints))
+            {
+                meetsRequirements = false;
+                break;
+            }
+        }
+
+        // Verifica pré-requisitos de outras quests 
+        foreach (QuestInfoSO prerequisiteQuestInfo in quest.info.questPrerequisites)
+        {
+            if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
+            {
+                meetsRequirements = false;
+                break;
+            }
+        }
+
+        return meetsRequirements;
+    }
 
 
     private void Update()

@@ -2,10 +2,8 @@ EXTERNAL StartQuest(questId)
 EXTERNAL AdvanceQuest(questId)
 EXTERNAL FinishQuest(questId)
 
-VAR VisitPillarsQuestId = "VisitPillarsQuest"
-
-VAR VisitPillarsQuestState = "REQUIREMENTS_NOT_MET"
-
+INCLUDE Intro1.ink
+INCLUDE shelly1.ink
 INCLUDE npc.ink
 INCLUDE testeAnisa.ink
 

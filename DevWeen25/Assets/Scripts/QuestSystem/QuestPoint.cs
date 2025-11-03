@@ -30,6 +30,7 @@ public class QuestPoint : MonoBehaviour
         questIcon = GetComponentInChildren<QuestIcon>();
     }
 
+
     private void OnEnable()
     {
         GameEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;

@@ -31,7 +31,7 @@ public class PrestigeManager : MonoBehaviour
 
     private void PlayerPrestigePointsChange(CharacterType character, int delta)
     {
-        Debug.Log($"Personagem {character} recebendo {delta}");
+        // Debug.Log($"Personagem {character} recebendo {delta}");
         switch (character)
         {
             case CharacterType.Shelly:
@@ -71,6 +71,10 @@ public class PrestigeManager : MonoBehaviour
         if (viktorDelta != 0) ChangePointsAtIndex(1, viktorDelta);
         if (ankhesaraDelta != 0) ChangePointsAtIndex(2, ankhesaraDelta);
         if (decalyaDelta != 0) ChangePointsAtIndex(3, decalyaDelta);
+        shellyDelta = 0;
+        viktorDelta = 0;
+        ankhesaraDelta = 0;
+        decalyaDelta = 0;
     }
 
     // helper interno que aplica delta (pode ser negativo) e garante >= 0
@@ -81,10 +85,8 @@ public class PrestigeManager : MonoBehaviour
         if (newValue == prestigePoints[idx]) return; // sem mudança, não salva/notifica
 
         prestigePoints[idx] = newValue;
-        SaveIndex(idx);
-
-        // notifica via evento (use o método do PlayerEvents que você adicionou)
-        GameEventsManager.instance?.playerEvents?.PlayerPrestigePointsChange((CharacterType)idx, prestigePoints[idx]);
+        
+        // SaveIndex(idx);
     }
 
     private void SaveIndex(int idx)

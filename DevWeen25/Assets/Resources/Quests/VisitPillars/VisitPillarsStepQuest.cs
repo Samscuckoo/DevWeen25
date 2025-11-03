@@ -12,6 +12,6 @@ public class VisitPillarsStepQuest : QuestStep
     }
     protected override void SetQuestStepState(string state)
     {
-        // Implementation for setting the quest step state based on the provided state string
+    
     }
 }

@@ -1,3 +1,7 @@
+VAR VisitPillarsQuestId = "VisitPillarsQuest"
+
+VAR VisitPillarsQuestState = "REQUIREMENTS_NOT_MET"
+
 === npc ===
 {VisitPillarsQuestState :
     - "REQUIREMENTS_NOT_MET": -> requirementsNotMet
