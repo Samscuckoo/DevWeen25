@@ -16,24 +16,24 @@ VAR VisitPillarsQuestState = "REQUIREMENTS_NOT_MET"
 -> END
 
 = canStart
-CADE VC ANISAAAA #speaker:Ank #portrait:Viktor_shy
-Vc ta vendo a transmissão?
+"Olá, você! Seja bem vindo à Edgewood High! Ainda estamos arrumando as coisas para o baile de boas vindas, então você vai ter que esperar para poder jogar... #speaker:Ankhesara Sakhmet #portrait:Ankhesara_normal
+"Mas se quiser, posso te dar um exemplo do que está por vir."#portrait:Ankhesara_shy
 * [Sim]
     ~ StartQuest(VisitPillarsQuestId)
-    Então vai perto dos pilares #portrait:Shelly_normal
+    "Ótimo! Dê uma volta por aí, procure a lixeira e o arbusto."#portrait:Ankhesara_normal
 * [Não]
-    Quando tiver, avisa. #portrait:Shelly_cry
+    "Então não desperdice meu tempo! Volte aqui se quiser tentar de novo" #portrait:Ankhesara_cry
 - -> END
 
 = inProgress
-Já foi lá? To esperando...
+Já foi lá? To esperando...#speaker:Ankhesara Sakhmet #portrait:Ankhesara_angry
 -> END
 
 = canFinish
 ~ FinishQuest(VisitPillarsQuestId)
-Beleza, aprendeu a andar, agora SOME.
+"Muito Bem! Sweet Halloween: Edgewood High é um dating simulator de gelar a espinha, e você poderá jogar em breve. Fique atento para novas versões!"#speaker:Ankhesara Sakhmet #portrait:Ankhesara_normal
 -> END
 
 = finished
-SOME DAQUI MANO
+"V-você voltou! Tá afim de mim, é?"#portrait:Ankhesara_shocked
 -> END

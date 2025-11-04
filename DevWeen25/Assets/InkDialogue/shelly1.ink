@@ -23,10 +23,10 @@ VAR BasicDialogueQuestState = "REQUIREMENTS_NOT_MET"
     "Ah... É uma pena então. Eu estava bem animada para a sua volta."#portrait:Shelly_cry
     ->hurryUp
 * ["Estou, gostaria de conhecer as novas pessoas que estão aqui"]
-    "Bem, eu posso dizer que bastante coisa mudou enquanto você esteve fora. Estou feliz que voltou!"#rewardShelly:10
+    "Bem, eu posso dizer que bastante coisa mudou enquanto você esteve fora. Estou feliz que voltou!(+10 Prestígio com Shelly)"#rewardShelly:10
     ->hurryUp
-* [""Estou, e estou feliz em rever você, Shelly."]
-    "Eu também estou muito feliz! Senti sua falta enquanto estava fora."#rewardShelly:15
+* ["Estou, principalmente feliz por rever você, Shelly."]
+    "Eu também estou muito feliz! Senti sua falta enquanto estava fora.(+15 Prestígio com Shelly)"#rewardShelly:15
     ->hurryUp
     
 =hurryUp
