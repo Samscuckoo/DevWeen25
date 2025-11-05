@@ -28,13 +28,13 @@ public class VolumeController : MonoBehaviour
     public void SetMusicVolume()
     {
         // Acessa o AudioManager e define o novo volume da m�sica
-        AudioManager.Instance.SetMusicVolume(musicSlider.value);
+        //AudioManager.Instance.SetMusicVolume(musicSlider.value);
     }
 
     // Fun��o que ajusta o volume dos efeitos sonoros usando o valor atual do slider
     public void SetSFXVolume()
     {
         // Acessa o AudioManager e define o novo volume dos efeitos sonoros
-        AudioManager.Instance.SetSFXVolume(sfxSlider.value);
+       // AudioManager.Instance.SetSFXVolume(sfxSlider.value);
     }
 }

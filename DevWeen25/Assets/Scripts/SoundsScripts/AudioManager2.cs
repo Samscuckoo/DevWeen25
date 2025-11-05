@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager2: MonoBehaviour
 {
-    public static AudioManager Instance;
+    public static AudioManager2 Instance;
 
 
     [SerializeField] private AudioSource _audioSource;
