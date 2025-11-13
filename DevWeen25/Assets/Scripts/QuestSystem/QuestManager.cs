@@ -60,7 +60,7 @@ public class QuestManager : MonoBehaviour
 
 
 
-     private Dictionary<CharacterType, int> prestigePoints = new Dictionary<CharacterType, int>();
+    private Dictionary<CharacterType, int> prestigePoints = new Dictionary<CharacterType, int>();
 
     private bool CheckRequirementsMet(Quest quest)
     {

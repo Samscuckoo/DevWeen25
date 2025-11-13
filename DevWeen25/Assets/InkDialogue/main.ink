@@ -5,7 +5,7 @@ EXTERNAL FinishQuest(questId)
 INCLUDE Intro1.ink
 INCLUDE shelly1.ink
 INCLUDE npc.ink
-INCLUDE testeAnisa.ink
+INCLUDE ank1Ball.ink
 
 
 

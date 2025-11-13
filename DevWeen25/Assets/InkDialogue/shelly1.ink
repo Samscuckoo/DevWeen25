@@ -1,14 +1,20 @@
-
-VAR BasicDialogueQuestId = "BasicDialogue"
+VAR BasicDialogueQuestId = "BasicDialogueQuest"
 
 VAR BasicDialogueQuestState = "REQUIREMENTS_NOT_MET"
 
 === shelly1 ===
-{VisitPillarsQuestState :
+{BasicDialogueQuestState :
+    - "REQUIREMENTS_NOT_MET": -> requirementsNotMet
     - "CAN_START": -> canStart
-    - else -> END
+    - "FINISHED": -> andaLogo
+    - else -> requirementsNotMet
 }
+=requirementsNotMet
+"Eita porra, algo aconteceu"
+-> END
+
 =canStart
+    ~ StartQuest(BasicDialogueQuestId)
 "Elias!Você por aqui! Finalmente decidiu voltar?"#speaker:Shelly Coralite #portrait: Shelly_normal
 * [Decidir não né... voltei por conveniência]
     "Ah, deixa de bobeira! Eu sei que você tava com saudade."#portrait:Shelly_angry 
@@ -32,6 +38,10 @@ VAR BasicDialogueQuestState = "REQUIREMENTS_NOT_MET"
 =hurryUp
 "Vamos, não podemos nos atrasar logo para o seu primeiro dia de aula! E ainda temos que pegar o anúncio do baile de início de ano"#portrait:Shelly_shocked
 ~ FinishQuest(BasicDialogueQuestId)
+->END
 
+=andaLogo
+"O que você está esperando? O sinal ja vai tocar!"#portrait:Shelly_angry
+->END
 
 ->END

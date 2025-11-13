@@ -22,7 +22,7 @@ MonoBehaviour:
   questStepPrefabs:
   - {fileID: 9157842130405185264, guid: e7fe21bc166aaf34582e90a134dba7c6, type: 3}
   - {fileID: 9157842130405185264, guid: 57fbfa7dd6508f64fb053a01f66aa4c3, type: 3}
-  prestigePointsShelly: 15
+  prestigePointsShelly: 0
   prestigePointsViktor: 0
-  prestigePointsAnkhesara: 0
+  prestigePointsAnkhesara: 100
   prestiegePointsDecalya: 0
