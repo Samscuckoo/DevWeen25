@@ -1,5 +1,4 @@
 VAR BasicDialogueQuestId = "BasicDialogueQuest"
-
 VAR BasicDialogueQuestState = "REQUIREMENTS_NOT_MET"
 
 === shelly1 ===
