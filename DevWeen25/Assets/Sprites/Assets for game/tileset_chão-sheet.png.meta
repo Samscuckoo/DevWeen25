@@ -862,7 +862,7 @@ TextureImporter:
       name: "tileset_ch\xE3o-sheet_33"
       rect:
         serializedVersion: 2
-        x: 96
+        x: 0
         y: 16
         width: 32
         height: 32
@@ -884,7 +884,7 @@ TextureImporter:
       name: "tileset_ch\xE3o-sheet_34"
       rect:
         serializedVersion: 2
-        x: 160
+        x: 96
         y: 16
         width: 32
         height: 32
@@ -906,7 +906,7 @@ TextureImporter:
       name: "tileset_ch\xE3o-sheet_35"
       rect:
         serializedVersion: 2
-        x: 224
+        x: 160
         y: 16
         width: 32
         height: 32
@@ -928,7 +928,7 @@ TextureImporter:
       name: "tileset_ch\xE3o-sheet_36"
       rect:
         serializedVersion: 2
-        x: 288
+        x: 224
         y: 16
         width: 32
         height: 32
@@ -942,6 +942,28 @@ TextureImporter:
       bones: []
       spriteID: 0e424f358541d674096bb8dfc65bec60
       internalID: -984136764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "tileset_ch\xE3o-sheet_37"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebf4516dbd49b24f9e6b80e7aabcd97
+      internalID: -122083511
       vertices: []
       indices: 
       edges: []
@@ -993,6 +1015,7 @@ TextureImporter:
       "tileset_ch\xE3o-sheet_34": -12342582
       "tileset_ch\xE3o-sheet_35": -445270529
       "tileset_ch\xE3o-sheet_36": -984136764
+      "tileset_ch\xE3o-sheet_37": -122083511
       "tileset_ch\xE3o-sheet_4": -7346994298034637934
       "tileset_ch\xE3o-sheet_5": 1821918825753381899
       "tileset_ch\xE3o-sheet_6": 960520987180951089
