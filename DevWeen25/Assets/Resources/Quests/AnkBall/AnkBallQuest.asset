@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f706d957788094483ecab10570cd1b, type: 3}
+  m_Name: AnkBallQuest
+  m_EditorClassIdentifier: Assembly-CSharp::QuestInfoSO
+  <id>k__BackingField: AnkBallQuest
+  displayName: AnkBallQuest
+  shellyPoints: 0
+  viktorPoints: 0
+  ankhesaraPoints: 0
+  decalyaPoints: 0
+  questPrerequisites:
+  - {fileID: 11400000, guid: 63c59c4d64971664c9a3197c12d899e4, type: 2}
+  questStepPrefabs:
+  - {fileID: 1789972823253712616, guid: 414fe0e45e6b4f34ab48daa3f05f315a, type: 3}
+  prestigePointsShelly: 0
+  prestigePointsViktor: 0
+  prestigePointsAnkhesara: 0
+  prestiegePointsDecalya: 0
