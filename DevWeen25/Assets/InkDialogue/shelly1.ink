@@ -15,7 +15,7 @@ VAR BasicDialogueQuestState = "REQUIREMENTS_NOT_MET"
 
 =canStart
     ~ StartQuest(BasicDialogueQuestId)
-"Elias!Você por aqui! Finalmente decidiu voltar?"#speaker:Shelly Coralite #portrait: Shelly_normal
+"Elias!Você por aqui! Finalmente decidiu voltar?"#speaker:Shelly Coralite #portrait:Shelly_normal
 * [Decidir não né... voltei por conveniência]
     "Ah, deixa de bobeira! Eu sei que você tava com saudade."#portrait:Shelly_angry 
     -> followUp

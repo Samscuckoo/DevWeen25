@@ -31,7 +31,7 @@ Já foi lá? To esperando...#speaker:Ankhesara Sakhmet #portrait:Ankhesara_angry
 
 = canFinish
 ~ FinishQuest(VisitPillarsQuestId)
-"Muito Bem! Sweet Halloween: Edgewood High é um dating simulator de gelar a espinha, e você poderá jogar em breve. Fique atento para novas versões!"#speaker:Ankhesara Sakhmet #portrait:Ankhesara_normal
+"Muito Bem! Sweet Halloween: Edgewood High é um dating simulator de gelar a espinha, e você poderá jogar em breve. Fique atento para novas versões!"#speaker:Ankhesara Sakhmet #portrait:Ankhesara_normal#rewardAnkhesara:100
 -> END
 
 = finished
