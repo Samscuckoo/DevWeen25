@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85f706d957788094483ecab10570cd1b, type: 3}
-  m_Name: AnkBallQuest
+  m_Name: ViktorMeetingQuest
   m_EditorClassIdentifier: Assembly-CSharp::QuestInfoSO
-  <id>k__BackingField: 
-  displayName: 
+  <id>k__BackingField: ViktorMeetingQuest
+  displayName: ViktorMeetingQuest
   shellyPoints: 0
   viktorPoints: 0
   ankhesaraPoints: 0
   decalyaPoints: 0
-  questPrerequisites: []
-  questStepPrefabs: []
+  questPrerequisites:
+  - {fileID: 11400000, guid: 20adfe521660dc14b85badd96bb1a7f3, type: 2}
+  questStepPrefabs:
+  - {fileID: 1789972823253712616, guid: 414fe0e45e6b4f34ab48daa3f05f315a, type: 3}
   prestigePointsShelly: 0
   prestigePointsViktor: 0
   prestigePointsAnkhesara: 0
