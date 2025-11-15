@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     private Story story;
     private int currentChoiceIndex = -1;
-    private bool dialoguePlaying = false;
+    public bool dialoguePlaying = false;
     private InkExternalFunctions inkExternalFunctions;
     private InkDialogueVariables inkDialogueVariables;
 

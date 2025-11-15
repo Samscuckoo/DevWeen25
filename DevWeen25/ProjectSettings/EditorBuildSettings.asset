@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 66d7e9ab15ee1494b965d8c17232a3ec
-  - enabled: 1
+  - enabled: 0
     path: Assets/Canellas/TesteDialogo.unity
     guid: cb6d2c59c57917e4d9fe56068e9d26ee
+  - enabled: 1
+    path: Assets/Sofia/Fase 1.unity
+    guid: ec6f89981b47fbe4982db905f073ebee
+  - enabled: 1
+    path: Assets/Sofia/Fase 2.unity
+    guid: 2f5244607a03422408c7e0469804caaf
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

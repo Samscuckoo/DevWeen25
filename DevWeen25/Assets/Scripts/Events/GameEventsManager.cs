@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using System.Collections;
+
 
 public class GameEventsManager : MonoBehaviour
 {
@@ -7,13 +9,14 @@ public class GameEventsManager : MonoBehaviour
     [SerializeField] string dialogueKnotName = "Intro1";
     [SerializeField] string completionDialogueKnot = "Outro1";
     [SerializeField] string gatekeeperQuestId = "intro_quest";
-    
+    [SerializeField]  private DialogueManager DialogueManager;
+
     public InputEvents inputEvents;
     public PlayerEvents playerEvents;
     public MiscEvents miscEvents;
     public QuestEvents questEvents;
     public DialogueEvents dialogueEvents;
-
+   
     private void Awake()
     {
         if (instance != null)
@@ -35,26 +38,31 @@ public class GameEventsManager : MonoBehaviour
         dialogueEvents.EnterDialogue(dialogueKnotName);
     }
 
-    // private void OnEnable()
-    // {
-    //     questEvents.onFinishQuest += OnQuestFinished;
-    // }
+    private void OnEnable()
+    {
+        questEvents.onFinishQuest += OnQuestFinished;
+    }
 
-    // private void OnDisable()
-    // {
-    //     questEvents.onFinishQuest -= OnQuestFinished;
-    // }
+    private void OnDisable()
+    {
+        questEvents.onFinishQuest -= OnQuestFinished;
+    }
 
     private void OnQuestFinished(string questId)
     {
         if (questId == gatekeeperQuestId)
         {
-            Debug.Log("Gatekeeper quest finished! Playing completion dialogue.");
-            dialogueEvents.EnterDialogue(completionDialogueKnot);
+            StartCoroutine(PlayGatekeeperCompletionDialogue());
         }
-        else if (questId == completionDialogueKnot)
-        {
-            
-        }
+      
+    }
+
+    private IEnumerator PlayGatekeeperCompletionDialogue()
+    {
+  
+        yield return new WaitUntil(() => DialogueManager.dialoguePlaying == false);
+
+        Debug.Log("Gatekeeper quest finished! Playing completion dialogue.");
+        dialogueEvents.EnterDialogue(completionDialogueKnot);
     }
 }

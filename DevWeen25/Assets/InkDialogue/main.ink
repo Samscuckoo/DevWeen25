@@ -1,6 +1,7 @@
 EXTERNAL StartQuest(questId)
 EXTERNAL AdvanceQuest(questId)
 EXTERNAL FinishQuest(questId)
+EXTERNAL NextChapter()
 
 INCLUDE Intro1.ink
 INCLUDE shelly1.ink
@@ -10,3 +11,4 @@ INCLUDE victorMeeting.ink
 INCLUDE decalyaMeeting.ink
 INCLUDE ViktorQuadra.ink
 INCLUDE Conflitoquadra.ink
+INCLUDE outro1.ink

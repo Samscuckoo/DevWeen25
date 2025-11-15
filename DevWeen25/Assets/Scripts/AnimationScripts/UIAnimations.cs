@@ -31,6 +31,8 @@ public class UIAnimations : MonoBehaviour
 
     public void PlayFade()
     {
+        Debug.Log("FadePLaying");
+
         animator.SetTrigger("Start");
     }
 
