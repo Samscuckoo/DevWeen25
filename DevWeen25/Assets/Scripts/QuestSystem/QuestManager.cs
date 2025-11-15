@@ -64,50 +64,29 @@ public class QuestManager : MonoBehaviour
 
     private bool CheckRequirementsMet(Quest quest)
     {
-        bool meetsRequirements = true;
+        // Verifica pontos de prestígio usando PrestigeManager
+        if (quest.info.shellyPoints > 0 && PrestigeManager.instance.GetPrestigePoints(CharacterType.Shelly) < quest.info.shellyPoints)
+            return false;
+        if (quest.info.viktorPoints > 0 && PrestigeManager.instance.GetPrestigePoints(CharacterType.Viktor) < quest.info.viktorPoints)
+            return false;
+        if (quest.info.ankhesaraPoints > 0 && PrestigeManager.instance.GetPrestigePoints(CharacterType.Ankhesara) < quest.info.ankhesaraPoints)
+            return false;
+        if (quest.info.decalyaPoints > 0 && PrestigeManager.instance.GetPrestigePoints(CharacterType.Decalya) < quest.info.decalyaPoints)
+            return false;
 
-        // Verifica se o jogador tem pontos de prestígio suficientes para cada personagem
-        foreach (var character in System.Enum.GetValues(typeof(CharacterType)))
+        // Verifica pré-requisitos de outras quests
+        if (quest.info.questPrerequisites != null && quest.info.questPrerequisites.Length > 0)
         {
-            CharacterType characterType = (CharacterType)character;
-            int requiredPoints = 0;
-
-            // Mapeia o tipo de personagem para os pontos requeridos
-            switch (characterType)
+            foreach (QuestInfoSO prerequisiteQuestInfo in quest.info.questPrerequisites)
             {
-                case CharacterType.Shelly:
-                    requiredPoints = quest.info.shellyPoints;
-                    break;
-                case CharacterType.Viktor:
-                    requiredPoints = quest.info.viktorPoints;
-                    break;
-                case CharacterType.Ankhesara:
-                    requiredPoints = quest.info.ankhesaraPoints;
-                    break;
-                case CharacterType.Decalya:
-                    requiredPoints = quest.info.decalyaPoints;
-                    break;
-            }
-
-            // Se há requisito de pontos e não temos pontos suficientes
-            if (requiredPoints > 0 && (!prestigePoints.ContainsKey(characterType) || prestigePoints[characterType] < requiredPoints))
-            {
-                meetsRequirements = false;
-                break;
+                if (prerequisiteQuestInfo == null) continue;
+                Quest prerequisiteQuest = GetQuestById(prerequisiteQuestInfo.id);
+                if (prerequisiteQuest == null || prerequisiteQuest.state != QuestState.FINISHED)
+                    return false;
             }
         }
 
-        // Verifica pré-requisitos de outras quests 
-        foreach (QuestInfoSO prerequisiteQuestInfo in quest.info.questPrerequisites)
-        {
-            if (GetQuestById(prerequisiteQuestInfo.id).state != QuestState.FINISHED)
-            {
-                meetsRequirements = false;
-                break;
-            }
-        }
-
-        return meetsRequirements;
+        return true;
     }
 
 

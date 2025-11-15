@@ -203,22 +203,6 @@ public class DialogueManager : MonoBehaviour
         return defaultValue;
     }
 
-    private void UpdateChoiceSprites(List<Choice> choices)
-    {
-        for (int i = 0; i < choices.Count; i++)
-        {
-            Sprite choiceSprite = GetSpriteForChoice(choices[i]); // Obtém a sprite correspondente
-            GameEventsManager.instance.dialogueEvents.PortraitChanged(choiceSprite); // Atualiza a imagem do retrato
-        }
-    }
-
-    private Sprite GetSpriteForChoice(Choice choice)
-    {
-        // Aqui você deve implementar a lógica para retornar a sprite correta
-        // Isso pode ser um dicionário ou uma estrutura que mapeia escolhas para sprites
-        return null; // Substitua isso pela lógica real
-    }
-
     private void ExitDialogue()
     {
         dialoguePlaying = false;

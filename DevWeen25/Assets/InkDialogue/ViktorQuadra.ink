@@ -1,3 +1,5 @@
+VAR ViktorQuadraQuestId = "ViktorQuadraQuest"
+VAR ViktorQuadraQuestState = "REQUIREMENTS_NOT_MET"
 === ViktorQuadra ===
 {ViktorQuadraQuestState :
     - "REQUIREMENTS_NOT_MET": -> requirementsNotMet
@@ -6,6 +8,7 @@
     - else -> requirementsNotMet
 }
 =requirementsNotMet
+Viktor está distraido demais com a quadra para notar você.#speaker:Narrador #portrait:Viktor_normal
 -> END
 =comeca
 ~ StartQuest(ViktorQuadraQuestId)
@@ -22,10 +25,7 @@
 *[Sim]
     "Sabia que iria topar!"
     ->hurryUp
-*[Não]
-    "Oh, por favor! Shelly irá ficar feliz com sua presença, com certeza" #speaker: Viktor Shadowfang #portrait:Viktor_normal
-        *[Sim]
-        ->hurryUp
+
 
 =hurryUp
 "Ótimo! Venha!"

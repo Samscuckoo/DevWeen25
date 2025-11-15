@@ -1,9 +1,12 @@
+VAR ConflitoquadraQuestId = "ConflitoquadraQuest"
+VAR ConflitoquadraQuestState = "REQUIREMENTS_NOT_MET"
+
 === Conflitoquadra ===
 
 {ConflitoquadraQuestState :
     - "REQUIREMENTS_NOT_MET": -> requirementsNotMet
     - "CAN_START": -> comeca
-    - "FINISHED": -> end
+    - "FINISHED": -> END
     - else -> requirementsNotMet
 }
 =requirementsNotMet
@@ -50,13 +53,13 @@
     "Eu ainda não consigo acreditar que perdi por sua causa. Um simples "foi sem querer" não vai consertar meu placar!"#speaker:Ankhesara Sakhmet #portrait:Ankhesara_angry
         *["Posso compensar te comprando algo para comer. Você decide, e eu pago."]
             "Hmph... Bom, talvez você tenha alguma utilidade fora do campo. Aceito."(+15 de Prestígio com Ankhesara)#portrait:Ankhesara_shy #rewardAnkhesara:+15
-            ->end
+            ->END
         *["Mesmo perdendo, suas jogadas ainda foram impressionantes."]
         "Impressionante? Claro. Eu sempre sou. Mas... pode continuar dizendo isso, talvez eu perdoe seu desastre. Vamos, te ajudo a colocar um gelo para não deixar roxo"(+10 de Prestígio com Ankhesara)#portrait:Ankhesara_shy #rewardAnkhesara:+10
-        ->end
+        ->END
         *["Olha, você também atrapalhou minha visão do campo com a bolada."]
         "Tome cuidado, que da próxima vez eu te transformo em uma múmia também, para aprender a não me atrapalhar" - A garota sai andando.(-10 de Prestígio com Ankhesara)#portrait:Ankhesara_angry #rewardAnkhesara:-10
-        ->end
+        ->END
         
 ===Viktor===
 "Elias se firma na mão gélida de Viktor, se equilibrando para levantar."(-10 de Prestígio com Decalya, Shelly e Ankhesara) #speaker: Narrador #rewardAnkhesara:-10 #rewardShelly:-10 #rewardDecalya:-10
@@ -95,7 +98,7 @@
 
 ===b4end1===
 "Venha, vou te ajudar a se recuperar do ataque da Ankhesara"
-->end
+->END
 
 ===Shelly===
 "Elias se firma nos dedos escorregadios de Shelly, se equilibrando para levantar."(-10 de Prestígio com Decalya, Viktor e Ankhesara) #speaker: Narrador #rewardAnkhesara:-10 #rewardViktor:-10 #rewardDecalya:-10
@@ -133,7 +136,7 @@
         
 ===b4end2===
 "De qualquer forma... Eu vou buscar um gelo para você! Espera aí"
-->end
+->END
 
 ===Decalya===
 "Elias se firma na mão fraca e sem motivação de Decalya, se equilibrando para levantar.(-10 de Prestígio com Shelly, Viktor e Ankhesara) #speaker: Narrador #rewardAnkhesara:-10 #rewardViktor:-10 #rewardShelly:-10
@@ -173,7 +176,5 @@
 
 ===b4end3===
 "Você parece pálido, vou buscar uma água para você"
-->end
     
-===end===
 -> END

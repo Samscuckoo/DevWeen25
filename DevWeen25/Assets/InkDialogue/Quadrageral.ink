@@ -1,3 +1,5 @@
+VAR QuadrageralQuestId = "QuadrageralQuest"
+VAR QuadrageralQuestState = "REQUIREMENTS_NOT_MET"
 === Quadrageral ===
 {QuadrageralQuestState :
     - "REQUIREMENTS_NOT_MET": -> requirementsNotMet

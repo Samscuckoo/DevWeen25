@@ -10,6 +10,7 @@ VAR ViktorMeetingQuestState = "REQUIREMENTS_NOT_MET"
     - else -> requirementsNotMet
 }
 =requirementsNotMet
+Um jovem pálido confere anotações em seu caderno. Ele está focado e parece não querer ser interrompido. #speaker:Narrador#portrait:Viktor_normal
 -> END
 
 =comeca

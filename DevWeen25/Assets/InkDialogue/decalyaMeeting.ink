@@ -1,3 +1,6 @@
+VAR decalyaMeetingQuestId = "decalyaMeetingQuest"
+VAR decalyaMeetingQuestState = "REQUIREMENTS_NOT_MET"
+
 === decalyaMeeting ===
 {decalyaMeetingQuestState :
     - "REQUIREMENTS_NOT_MET": -> requirementsNotMet
