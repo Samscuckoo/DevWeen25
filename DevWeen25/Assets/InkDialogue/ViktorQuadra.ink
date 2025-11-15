@@ -29,8 +29,9 @@ Viktor está distraido demais com a quadra para notar você.#speaker:Narrador #p
 
 =hurryUp
 "Ótimo! Venha!"
--> END
 ~ FinishQuest(ViktorQuadraQuestId)
+-> END
+
 =end
 "Acho que já levaram a bola para a quadra, vamos!"
-->end
+->END

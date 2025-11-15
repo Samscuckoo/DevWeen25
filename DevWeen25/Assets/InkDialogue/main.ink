@@ -12,3 +12,5 @@ INCLUDE decalyaMeeting.ink
 INCLUDE ViktorQuadra.ink
 INCLUDE Conflitoquadra.ink
 INCLUDE outro1.ink
+INCLUDE outro2.ink
+INCLUDE Intro2.ink

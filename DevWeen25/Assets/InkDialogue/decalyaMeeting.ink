@@ -16,11 +16,13 @@ VAR decalyaMeetingQuestState = "REQUIREMENTS_NOT_MET"
 "Ai.. Aí, presta um pouco mais de atenção, seu sem cérebro!" #speaker: Decalya Gorey #portrait:Decalya_angry
 *["Me desculpa, não te vi aí. Você está bem?" ]
     "Hnf. Estou bem. Mas vê não esbarra mais em mim assim, boboca! (+15 de Prestígio com Decalya)" #speaker: Decalya Gorey #portrait:Decalya_shy
+    ~ FinishQuest(decalyaMeetingQuestId)
     ->END
 *["Você que está barrando o caminho!"]
-    "O-o que?! Você tá dizendo que a culpa de VOCÊ esbarrar em MIM?! Idiota.(-15 de Prestígio com Decalya)" #speaker: Decalya Gorey #portrait:Decalya_angry
+    "O-o que?! Você tá dizendo que a culpa de VOCÊ esbarrar em MIM é MINHA?! Idiota.(-15 de Prestígio com Decalya)" #speaker: Decalya Gorey #portrait:Decalya_angry
+    ~ FinishQuest(decalyaMeetingQuestId)
     -> END
-~ FinishQuest(decalyaMeetingQuestId)
+
 =end
-"Não fica me encarando, bobão! Hnf."
-->end
+"Não fica me encarando, bobão! Hnf."#speaker:Decalya Gorey #portrait:Decalya_shocked
+->END
